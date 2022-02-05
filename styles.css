@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@100;200&family=Pacifico&display=swap');
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+html, body, h1, h2, h3, h4, h5, h6, p, li, ol, ul, pre {
+	margin: 0;
+	padding: 0;
+}
+html, body { min-height: 100%; }
+
+body {
+	background-color: rgb(231, 243, 255);
+	background-image: linear-gradient(to bottom, rgba(231, 173, 207, 0.6), transparent);
+	color: #eee;
+	font-family: 'Lato', sans-serif;
+	font-size: 62.5%;
+	padding: 0 20px;
+	box-sizing: border-box;
+}
+code {
+	background: #fff1;
+	font-family: 'Inconsolata', monospace;
+	padding: .2em .4em;
+}
+.social {
+	background-color: #fff;
+	border-radius: 8px;
+	box-sizing: border-box;
+	color: #666;
+	font-size: 1.6em;
+	line-height: 1.4em;
+	margin: 20px auto;
+	margin-top: 80px;
+	padding: 20px;
+	width: 100%;
+	max-width: 800px;
+}
+.content {
+	background-color: #fff;
+	border-radius: 8px;
+	box-sizing: border-box;
+	color: #666;
+	font-size: 1.6em;
+	line-height: 1.4em;
+	margin: 20px auto;
+	margin-top: 80px;
+	padding: 20px;
+	width: 100%;
+	max-width: 800px;
+}
+.content ul {
+	margin: .5em 2em;
+	padding: 0;
+}
+
+#footer {
+	background-color: #246c;
+	background-image: linear-gradient(to bottom, transparent, #0009);
+	border-top: 1px solid #fff3;
+	box-shadow: inset 0 1px 0 #fff3, 0 0 32px #000;
+	overflow: hidden;
+	padding: 8px;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9001;
+}
+#footer a {
+	color: #85c6f6;
+	padding: 1em 0;
+	text-decoration: none;
+}
+#footer ul {
+	display: flex;
+	list-style: none;
+	justify-content: center;
+	font-size: 2em;
+	font-weight: 300;
+}
+#footer ul li {
+	padding: 0 .5em;
+}
+
+/* Appearance */
+.links {
+	background-color:  rgba(231, 173, 207, 0.6);
+	background-image: linear-gradient(to bottom, #0003, transparent);
+	border-bottom: 1px solid #0003;
+	box-shadow: 0 0 32px #0003;
+	font-size: 16px;
+	font-weight: 300;
+}
+.links > a {
+	color: rgb(0, 0, 0);
+	padding: .75em;
+	text-align: center;
+	text-decoration: none;
+	transition: all .5s;
+}
+.links > a:hover {
+	background: #ffffff06;
+	color: rgb(31, 108, 185);
+}
+.links > .line {
+	background: rgb(31, 108, 185);
+	height: 1px;
+	pointer-events: none;
+}
+
+/* The Magic */
+#header {
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  z-index: 10000;
+
+}
+.links {
+	display: grid;
+	grid-template-columns: repeat(var(--items), 1fr);
+	position: relative;
+}
+.links > .line {
+	opacity: 0;
+	transition: all .5s;
+	position: absolute;
+	bottom: 0;
+	left: var(--left, calc(100% / var(--items) * (var(--index) - 1)));
+	width: var(--width, calc(100% / var(--items)));
+	--index: 0;
+}
+.links > a:hover ~ .line {
+	opacity: 1;
+}
+
+.links > a:nth-of-type(1):hover ~ .line { --index: 1; }
+.links > a:nth-of-type(2):hover ~ .line { --index: 2; }
+.links > a:nth-of-type(3):hover ~ .line { --index: 3; }
+.links > a:nth-of-type(4):hover ~ .line { --index: 4; }
+.links > a:nth-of-type(5):hover ~ .line { --index: 5; }
+.links > a:nth-of-type(6):hover ~ .line { --index: 6; }
+.links > a:nth-of-type(7):hover ~ .line { --index: 7; }
+.links > a:nth-of-type(8):hover ~ .line { --index: 8; }
+.links > a:nth-of-type(9):hover ~ .line { --index: 9; }
+.links > a:nth-of-type(10):hover ~ .line { --index: 10; }
+.links > a:last-of-type:hover ~ .line { --index: var(--items); }
+
+.child-page-listing {
+    background-color: #fff;
+	border-radius: 8px;
+	box-sizing: border-box;
+	color: #666;
+	font-size: 1.6em;
+	line-height: 1.4em;
+	margin: 20px auto;
+	margin-top: 80px;
+	padding: 20px;
+	width: 100%;
+	max-width: 800px;
+}
+img {
+    width: 100%; /* need to overwrite inline dimensions */
+    height: auto;
+  }
+  h2 {
+      color: #000;
+      text-align: center;
+    margin-bottom: .5em;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 1em;
+  }
+  
+  
+  /* hover styles */
+  .location-listing {
+    position: relative;
+  }
+  
+  .location-image {
+    line-height: 0;
+    overflow: hidden;
+  }
+  
+  .location-image img {
+    filter: blur(0px);
+    transition: filter 0.3s ease-in;
+    transform: scale(1.1);
+  }
+  
+  .location-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    z-index: 1;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity .5s;
+    background: rgba(90,0,10,0.4);
+    color: white;
+    
+    /* position the text in t’ middle*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .location-listing:hover .location-title {
+    opacity: 1;
+  }
+  
+  .location-listing:hover .location-image img {
+    filter: blur(2px);
+  }
+  
+  
+  /* for touch screen devices */
+  @media (hover: none) { 
+    .location-title {
+      opacity: 1;
+    }
+    .location-image img {
+      filter: blur(2px);
+    }
+  }
+    .socialll {
+        box-sizing: border-box;
+        margin: 20px auto;
+        margin-top: 80px;
+        padding: 20px;
+        width: 100%;
+        max-width: 800px;
+    }
+  .socialll > div {
+      background: rgba(255, 250, 205, 0);
+    display: inline-block; 
+    margin: auto;
+    height: 50px;
+    width: 19%;
+    max-width: 800px;
+    padding: auto;
+    margin-left: 5px;
+}
+
+  .sociall a {
+    text-align: center;
+    width: 48px;
+    height: 48px;
+    float: left;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15), inset 0 0 50px rgba(0,0,0,0.1);
+    border-radius: 24px;
+    margin: auto;
+    padding: 5px 5px 5px 5px;
+    color: #000;
+    font-size: 22px !important;
+  }
+  .instagram a:hover {background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); color: #fff;}
+  .vk a:hover {background: #5d84ae; color: #fff;}
+  .odnoklassniki a:hover {background: #f93; color: #fff;}
+  .telegram a:hover {background: #249bd7; color: #fff;}
+  .whatsapp a:hover {background: #50b154; color: #fff;}
